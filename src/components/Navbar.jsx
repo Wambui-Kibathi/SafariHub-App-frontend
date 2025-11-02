@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { FaHome, FaMapMarkerAlt, FaUser, FaChartBar, FaSignInAlt, FaUserPlus, FaSignOutAlt } from "react-icons/fa";
 import "../styles/main.css";
 
 const Navbar = () => {
@@ -17,32 +18,32 @@ const Navbar = () => {
         SafariHub
       </h1>
       <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/destinations">Destinations</Link>
+        <Link to="/"><FaHome className="icon-small" /> Home</Link>
+        <Link to="/destinations"><FaMapMarkerAlt className="icon-small" /> Destinations</Link>
 
         {/* Show dashboard link depending on role */}
         {user && user.role === "admin" && (
-          <Link to="/dashboard/admin">Dashboard</Link>
+          <Link to="/dashboard/admin"><FaChartBar className="icon-small" /> Dashboard</Link>
         )}
         {user && user.role === "guide" && (
-          <Link to="/dashboard/guide">Dashboard</Link>
+          <Link to="/dashboard/guide"><FaChartBar className="icon-small" /> Dashboard</Link>
         )}
         {user && user.role === "traveler" && (
-          <Link to="/dashboard/traveler">Dashboard</Link>
+          <Link to="/dashboard/traveler"><FaChartBar className="icon-small" /> Dashboard</Link>
         )}
 
         {/* If logged in, show profile + logout */}
         {user ? (
           <>
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile"><FaUser className="icon-small" /> Profile</Link>
             <button onClick={handleLogout} className="logout-btn">
-              Logout
+              <FaSignOutAlt className="icon-small" /> Logout
             </button>
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/login"><FaSignInAlt className="icon-small" /> Login</Link>
+            <Link to="/register"><FaUserPlus className="icon-small" /> Register</Link>
           </>
         )}
       </div>

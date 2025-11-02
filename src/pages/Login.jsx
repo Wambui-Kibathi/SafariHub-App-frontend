@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { FaSignInAlt, FaEye, FaEyeSlash, FaUserPlus } from "react-icons/fa";
 import "../styles/Form.css";
 import "../styles/main.css";
 
@@ -33,7 +34,7 @@ const Login = () => {
 
   return (
     <div className="form-container">
-      <h2>Login</h2>
+      <h2><FaSignInAlt className="icon" /> Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -57,14 +58,14 @@ const Login = () => {
             className="show-pass-btn"
             onClick={() => setShowPassword(!showPassword)}
           >
-            {showPassword ? "Hide" : "Show"}
+            {showPassword ? <><FaEyeSlash className="icon-small" /> Hide</> : <><FaEye className="icon-small" /> Show</>}
           </button>
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="btn btn-primary"><FaSignInAlt className="icon-small" /> Login</button>
         {error && <p className="error">{error}</p>}
       </form>
       <p className="redirect">
-        Don't have an account? <Link to="/register">Register here</Link>
+        Don't have an account? <Link to="/register"><FaUserPlus className="icon-small" /> Register here</Link>
       </p>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { createReview } from "../../api/reviewApi";
+import { FaStar, FaComment, FaPaperPlane } from "react-icons/fa";
 import "../../styles/form.css";
 
 const ReviewForm = ({ destinationId, onReviewAdded }) => {
@@ -22,8 +23,8 @@ const ReviewForm = ({ destinationId, onReviewAdded }) => {
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
-      <h3>Leave a Review</h3>
-      <label>Rating:</label>
+      <h3><FaStar className="icon" /> Leave a Review</h3>
+      <label><FaStar className="icon-small" /> Rating:</label>
       <input
         type="number"
         name="rating"
@@ -33,14 +34,14 @@ const ReviewForm = ({ destinationId, onReviewAdded }) => {
         max="5"
         required
       />
-      <label>Comment:</label>
+      <label><FaComment className="icon-small" /> Comment:</label>
       <textarea
         name="comment"
         value={review.comment}
         onChange={(e) => setReview({ ...review, comment: e.target.value })}
         required
       ></textarea>
-      <button type="submit">Submit</button>
+      <button type="submit"><FaPaperPlane className="icon-small" /> Submit</button>
       {message && <p className="success">{message}</p>}
     </form>
   );

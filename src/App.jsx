@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFailure from "./pages/PaymentFailure";
 import NotFound from "./pages/NotFound";
+import BookingForm from "./components/BookingForm";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/book/:destinationId" element={<BookingForm />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/payment-failure" element={<PaymentFailure />} />
           <Route path="*" element={<NotFound />} />

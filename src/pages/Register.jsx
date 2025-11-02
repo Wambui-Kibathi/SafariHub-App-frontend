@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { FaUserPlus, FaEye, FaEyeSlash, FaSignInAlt } from "react-icons/fa";
 import "../styles/Form.css";
 import "../styles/main.css";
 
@@ -39,7 +40,7 @@ const Register = () => {
 
   return (
     <div className="form-container">
-      <h2>Register</h2>
+      <h2><FaUserPlus className="icon" /> Register</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -71,7 +72,7 @@ const Register = () => {
             className="show-pass-btn"
             onClick={() => setShowPassword(!showPassword)}
           >
-            {showPassword ? "Hide" : "Show"}
+            {showPassword ? <><FaEyeSlash className="icon-small" /> Hide</> : <><FaEye className="icon-small" /> Show</>}
           </button>
         </div>
         <select name="role" value={formData.role} onChange={handleChange}>
@@ -79,11 +80,11 @@ const Register = () => {
           <option value="guide">Guide</option>
           <option value="admin">Admin</option>
         </select>
-        <button type="submit" className="btn btn-primary">Register</button>
+        <button type="submit" className="btn btn-primary"><FaUserPlus className="icon-small" /> Register</button>
         {error && <p className="error">{error}</p>}
       </form>
       <p className="redirect">
-        Already have an account? <Link to="/login">Login here</Link>
+        Already have an account? <Link to="/login"><FaSignInAlt className="icon-small" /> Login here</Link>
       </p>
     </div>
   );
