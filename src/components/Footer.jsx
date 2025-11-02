@@ -1,4 +1,5 @@
 import React from "react";
+import { FaMapMarkerAlt, FaInfoCircle, FaPhone, FaEnvelope, FaHeart } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -11,19 +12,19 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="/destinations">Destinations</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/destinations"><FaMapMarkerAlt className="icon-small" />Destinations</a></li>
+            <li><a href="/about"><FaInfoCircle className="icon-small" />About Us</a></li>
+            <li><a href="/contact"><FaPhone className="icon-small" />Contact</a></li>
           </ul>
         </div>
         <div className="footer-section">
           <h4>Contact Info</h4>
-          <p>Email: info@safarihub.com</p>
-          <p>Phone: +254 123 456 789</p>
+          <p><FaEnvelope className="icon-small" />Email: info@safarihub.com</p>
+          <p><FaPhone className="icon-small" />Phone: +254 123 456 789</p>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2025 SafariHub. All rights reserved.</p>
+        <p>&copy; 2025 SafariHub. All rights reserved. Made with <FaHeart className="icon-small" /> for safari lovers.</p>
       </div>
     </footer>
   );
