@@ -1,12 +1,22 @@
 import { API_BASE_URL } from "./config";
 
+// Guide dashboard overview
+export const getGuideDashboard = async (token) => {
+  const res = await fetch(`${API_BASE_URL}/guide/dashboard`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.message || "Failed to fetch guide dashboard");
+  return data; // { guide, total_bookings }
+};
+
 // Guide profile
 export const getGuideProfile = async (token) => {
   const res = await fetch(`${API_BASE_URL}/guide/profile`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   const data = await res.json();
-  if (!res.ok) throw new Error(data.message || "Failed to fetch guide profile");
+  if (!res.ok) throw new Error(data.message || "Failed to fetch profile");
   return data;
 };
 
@@ -20,7 +30,17 @@ export const updateGuideProfile = async (payload, token) => {
     body: JSON.stringify(payload),
   });
   const data = await res.json();
-  if (!res.ok) throw new Error(data.message || "Failed to update guide profile");
+  if (!res.ok) throw new Error(data.message || "Failed to update profile");
+  return data;
+};
+
+// Guide destinations
+export const getAssignedDestinations = async (token) => {
+  const res = await fetch(`${API_BASE_URL}/guide/destinations`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.message || "Failed to fetch destinations");
   return data;
 };
 
@@ -30,30 +50,6 @@ export const getGuideBookings = async (token) => {
     headers: { Authorization: `Bearer ${token}` },
   });
   const data = await res.json();
-  if (!res.ok) throw new Error(data.message || "Failed to fetch guide bookings");
-  return data;
-};
-
-export const updateBookingStatus = async (id, status, token) => {
-  const res = await fetch(`${API_BASE_URL}/guide/bookings/${id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({ status }),
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.message || "Failed to update booking status");
-  return data;
-};
-
-// Guide dashboard
-export const getGuideDashboard = async (token) => {
-  const res = await fetch(`${API_BASE_URL}/guide/dashboard`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.message || "Failed to fetch guide dashboard");
+  if (!res.ok) throw new Error(data.message || "Failed to fetch bookings");
   return data;
 };

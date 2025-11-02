@@ -1,7 +1,7 @@
 // src/api/authApi.js
 import { API_BASE_URL } from "./config";
 
-/** 🔹 Register a new user */
+/* Register a new user */
 export const registerUser = async (data) => {
   try {
     const res = await fetch(`${API_BASE_URL}/auth/register`, {
@@ -21,7 +21,7 @@ export const registerUser = async (data) => {
   }
 };
 
-/** 🔹 Login user */
+/* Login user */
 export const loginUser = async (data) => {
   try {
     const res = await fetch(`${API_BASE_URL}/auth/login`, {
@@ -41,7 +41,7 @@ export const loginUser = async (data) => {
   }
 };
 
-/** 🔹 Logout user */
+/* Logout user */
 export const logoutUser = async (token) => {
   try {
     const res = await fetch(`${API_BASE_URL}/auth/logout`, {
@@ -60,7 +60,7 @@ export const logoutUser = async (token) => {
   }
 };
 
-/** 🔹 Get currently logged-in user */
+/* Get currently logged-in user */
 export const getCurrentUser = async (token) => {
   try {
     const res = await fetch(`${API_BASE_URL}/auth/me`, {
