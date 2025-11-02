@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import "../styles/main.css";
 
 const Destinations = () => {
-  const { auth } = useAuth(); // Optional, for admin actions later
+  const { auth } = useAuth(); // For admin actions later
   const [destinations, setDestinations] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
