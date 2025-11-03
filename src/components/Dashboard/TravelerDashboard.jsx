@@ -82,15 +82,15 @@ const TravelerDashboard = () => {
           <h2><FaUser className="icon" /> Profile</h2>
           <div>
             {!isEditing ? (
-              <button onClick={() => setIsEditing(true)} className="edit-btn">
+              <button onClick={() => setIsEditing(true)} className="btn btn-accent">
                 <FaEdit className="icon-small" /> Edit Profile
               </button>
             ) : (
-              <div>
-                <button onClick={handleSaveProfile} className="save-btn" style={{ marginRight: "10px" }}>
+              <div style={{ display: "flex", gap: "10px" }}>
+                <button onClick={handleSaveProfile} className="btn btn-primary">
                   <FaSave className="icon-small" /> Save
                 </button>
-                <button onClick={handleCancelEdit} className="cancel-btn">
+                <button onClick={handleCancelEdit} className="btn btn-outline">
                   <FaTimes className="icon-small" /> Cancel
                 </button>
               </div>
