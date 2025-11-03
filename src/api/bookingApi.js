@@ -50,6 +50,21 @@ export const updateBooking = async (id, data, token) => {
   return result;
 };
 
+// Update booking status
+export const updateBookingStatus = async (id, data, token) => {
+  const res = await fetch(`${API_BASE_URL}/bookings/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+  const result = await res.json();
+  if (!res.ok) throw new Error(result.message || "Failed to update booking status");
+  return result;
+};
+
 // Delete booking
 export const deleteBooking = async (id, token) => {
   const res = await fetch(`${API_BASE_URL}/bookings/${id}`, {
