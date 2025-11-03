@@ -3,8 +3,8 @@ import { API_BASE_URL } from "./config";
 // Get all destinations
 export const getDestinations = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/destinations/`);
-    const data = await res.json();
+    const res = await fetch(`${API_BASE_URL}/destinations/`); // send request to backend 
+    const data = await res.json(); // backend returns a JSON response
     if (!res.ok) throw new Error(data.message || "Failed to fetch destinations");
     return data;
   } catch (error) {
