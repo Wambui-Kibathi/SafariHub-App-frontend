@@ -1,16 +1,17 @@
+// Destinations Page - it is where users can browse available destinations that are being fetched from the backend.
 import { useEffect, useState } from "react";
 import { getDestinations } from "../api/destinationApi";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
-import { FaMapMarkerAlt, FaDollarSign, FaCalendarAlt } from "react-icons/fa";  // Added icons
+import { FaMapMarkerAlt, FaDollarSign, FaCalendarAlt } from "react-icons/fa"; 
 import "../styles/main.css";
 
 const Destinations = () => {
-  const { auth } = useAuth(); // Optional, for admin actions later
+  const { auth } = useAuth(); 
   const [destinations, setDestinations] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");  // Optional search
+  const [searchTerm, setSearchTerm] = useState("");  
 
   useEffect(() => {
     const fetchDestinations = async () => {
@@ -28,7 +29,7 @@ const Destinations = () => {
     fetchDestinations();
   }, []);
 
-  // Filter destinations based on search (optional)
+  // For filtering destinations based on search name or country
   const filteredDestinations = destinations.filter(dest =>
     dest.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     dest.country.toLowerCase().includes(searchTerm.toLowerCase())
@@ -54,7 +55,7 @@ const Destinations = () => {
     <div className="destinations-page">
       <h1><FaMapMarkerAlt className="icon" /> Destinations</h1>
       
-      {/* Optional Search Bar */}
+      {/* Search Bar */}
       <div className="search-bar">
         <input
           type="text"

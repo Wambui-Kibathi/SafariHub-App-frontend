@@ -1,9 +1,12 @@
+// createContext creates a react context object that is used to store auth state and functions.
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { loginUser, registerUser } from "../api/authApi";
 
+// useAuth is the custom hook to access the AuthContext from any component. We'll just call useAuth instead of useContext(AuthContext) directly.
 export const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
+// AuthProvider is a component that wraps around parts of the app that need access to authentication state and functions.
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     user: null,
@@ -12,10 +15,10 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Load user from localStorage on app start
+  // useEffect checks localStorage for saved a token and loads user from localStorage when the app starts
   useEffect(() => {
-    const storedUser = localStorage.getItem("authUser");
-    const storedToken = localStorage.getItem("authToken");
+    const storedUser = localStorage.getItem("authUser"); // access user details without refetching from server
+    const storedToken = localStorage.getItem("authToken"); // get token from localStorage
 
     if (storedUser && storedToken) {
       setAuth({
