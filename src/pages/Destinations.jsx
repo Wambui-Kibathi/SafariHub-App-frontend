@@ -7,7 +7,7 @@ import { FaMapMarkerAlt, FaDollarSign, FaCalendarAlt } from "react-icons/fa";
 import "../styles/main.css";
 
 const Destinations = () => {
-  const { auth } = useAuth(); 
+  const { auth } = useAuth(); // added this to access auth if needed in the future 
   const [destinations, setDestinations] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);

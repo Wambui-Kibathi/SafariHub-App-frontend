@@ -13,7 +13,7 @@ const Footer = () => {
           <h4>Quick Links</h4>
           <ul>
             <li><a href="/destinations"><FaMapMarkerAlt className="icon-small" />Destinations</a></li>
-          <li><a href="/contact"><FaPhone className="icon-small" />Contact</a></li>
+          <li><FaPhone className="icon-small" />Contact</li>
           </ul>
         </div>
         <div className="footer-section">
