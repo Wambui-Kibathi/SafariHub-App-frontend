@@ -20,9 +20,16 @@ export const AuthProvider = ({ children }) => {
     const storedUser = localStorage.getItem("authUser"); // access user details without refetching from server
     const storedToken = localStorage.getItem("authToken"); // get token from localStorage
 
+    console.log("AuthContext - Loading from localStorage:", {
+      storedUser: storedUser ? "exists" : "missing",
+      storedToken: storedToken ? "exists" : "missing"
+    });
+
     if (storedUser && storedToken) {
+      const parsedUser = JSON.parse(storedUser);
+      console.log("AuthContext - Setting auth state:", { user: parsedUser, token: storedToken.substring(0, 20) + "..." });
       setAuth({
-        user: JSON.parse(storedUser),
+        user: parsedUser,
         token: storedToken,
       });
     }
