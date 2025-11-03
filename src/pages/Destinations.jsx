@@ -1,5 +1,5 @@
 // Destinations Page - it is where users can browse available destinations that are being fetched from the backend.
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; // useState manages dynamic data: destinations, loading, error, searchTerm. While the useEffect fetches data when component first loads.
 import { getDestinations } from "../api/destinationApi";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ const Destinations = () => {
     const fetchDestinations = async () => {
       try {
         setLoading(true);
-        const data = await getDestinations();
+        const data = await getDestinations(); // Fetch destinations from backend API
         setDestinations(data);
         setError("");
       } catch (err) {
