@@ -28,13 +28,12 @@ const Register = () => {
     try {
       const { user } = await register(formData);
 
-      // Redirect by role
-      if (user.role === "admin") navigate("/admin/dashboard");
-      else if (user.role === "guide") navigate("/guide/dashboard");
-      else navigate("/"); // traveler
+      // Redirect to dashboard for all users
+      navigate("/dashboard");
 
     } catch (err) {
-      setError(err.message);
+      console.error("Registration error:", err);
+      setError(err.message || "Registration failed. Please try again.");
     }
   };
 

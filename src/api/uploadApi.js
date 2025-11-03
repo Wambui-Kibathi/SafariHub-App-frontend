@@ -1,6 +1,6 @@
 import { API_BASE_URL } from "./config";
 
-export const uploadProfilePicture = async (token, file) => {
+export const uploadProfilePicture = async (file, token) => {
   try {
     const formData = new FormData();
     formData.append("image", file);

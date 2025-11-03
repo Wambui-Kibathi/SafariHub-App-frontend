@@ -21,15 +21,9 @@ const Navbar = () => {
         <Link to="/"><FaHome className="icon-small" /> Home</Link>
         <Link to="/destinations"><FaMapMarkerAlt className="icon-small" /> Destinations</Link>
 
-        {/* Show dashboard link depending on role */}
-        {user && user.role === "admin" && (
-          <Link to="/dashboard/admin"><FaChartBar className="icon-small" /> Dashboard</Link>
-        )}
-        {user && user.role === "guide" && (
-          <Link to="/dashboard/guide"><FaChartBar className="icon-small" /> Dashboard</Link>
-        )}
-        {user && user.role === "traveler" && (
-          <Link to="/dashboard/traveler"><FaChartBar className="icon-small" /> Dashboard</Link>
+        {/* Show dashboard link for all authenticated users */}
+        {user && (
+          <Link to="/dashboard"><FaChartBar className="icon-small" /> Dashboard</Link>
         )}
 
         {/* If logged in, show profile + logout */}
