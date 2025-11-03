@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { FaUserPlus, FaEye, FaEyeSlash, FaSignInAlt } from "react-icons/fa";
-import "../styles/Form.css";
+import "../styles/form.css";
 import "../styles/main.css";
 
 const Register = () => {
