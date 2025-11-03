@@ -18,7 +18,7 @@ const Destinations = () => {
       try {
         setLoading(true);
         const data = await getDestinations(); // Fetch destinations from backend API
-        setDestinations(data);
+        setDestinations(data); // where the data is stored in state (json array of destination objects)
         setError("");
       } catch (err) {
         setError(`Failed to load destinations: ${err.message}. <button onClick={() => window.location.reload()}>Retry</button>`);
