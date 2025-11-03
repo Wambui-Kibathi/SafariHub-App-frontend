@@ -216,15 +216,15 @@ const Profile = () => {
         <h2><FaUser className="icon" /> {user?.role === 'admin' ? 'Admin' : 'My'} Profile</h2>
         <div>
           {!isEditing ? (
-            <button onClick={handleEdit} className="btn btn-primary">
+            <button onClick={handleEdit} className="btn btn-accent">
               <FaEdit className="icon-small" /> Edit Profile
             </button>
           ) : (
-            <div>
-              <button onClick={handleSave} className="btn btn-primary" style={{ marginRight: "10px" }}>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <button onClick={handleSave} className="btn btn-accent">
                 <FaSave className="icon-small" /> Save
               </button>
-              <button onClick={handleCancel} className="btn btn-secondary">
+              <button onClick={handleCancel} className="btn btn-outline">
                 <FaTimes className="icon-small" /> Cancel
               </button>
             </div>
